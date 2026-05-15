@@ -1,8 +1,11 @@
 const searchInput = document.getElementById("searchInput");
 
 function debounce(callback, delay) {
+
     let timeoutId;
+    
     return (...args) => {
+
         clearTimeout(timeoutId);
 
         timeoutId = setTimeout (() => {
@@ -10,7 +13,9 @@ function debounce(callback, delay) {
         }, delay);
     };
 }
-
-searchInput.addEventListener("input", (event) =>{
+const handleSearch = debounce((event) =>{
     console.log(event.target.value);
-});
+
+}, 500);
+
+searchInput.addEventListener("input", handleSearch);

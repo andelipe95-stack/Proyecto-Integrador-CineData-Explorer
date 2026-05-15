@@ -8,13 +8,61 @@
 </head>
 <body>
     <header>
-        <h1>CineData Explorer</h1>
+        <div class="logo-section">
+            <h1>CineData Explorer</h1>
+            <p>Discover movies, countries and trends</p>
+        </div>
+        <button id="themeToggle">
+            🌙
+        </button>
+
+        
     </header>
 
-    <main>
-        <section>
-            <input id="searchInput" type="text" placeholder="Search movie...">
+    <main class="container">
+        <section class="search-section">
+            <h2>Discover Movies</h2>
+            
+            <input
+             id="searchInput"
+             type="text"
+             placeholder="Search movie..."
+             
+             >
         </section>
+        
+        <section class="content">
+            <section class="movies-section">
+                <div id="moviesGrid" class="movies-grid">
+
+                    <!-- Movie cards here -->
+
+                </div>
+
+            </section>
+
+            <aside class="stats-section">
+                
+                <h3>Stadistics</h3>
+
+                <div class="chart-placeholder">
+                    
+                    
+                chart.js will go here
+
+                </div>
+                
+            </aside>
+            
+        </section>
+
+        <section class="map-section">
+            <h3>Production countries</h3>
+            <div id="map"></div>
+
+        </section>
+
+
     </main>
 
     <script type="module" src="js/main.js"></script>
