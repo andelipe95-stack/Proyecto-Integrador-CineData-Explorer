@@ -8,8 +8,10 @@ const searchInput = document.getElementById("searchInput");
 const contenedor = document.getElementById('moviesGrid');
 
 function pintarPeliculas(listaPelis){
-    moviesGrid.innerHTML = listaPelis.length === 0
+
+    movieGrid.innerHTML = listaPelis.length === 0
     ? "<h2>No results found</h2>":"";
+    
     const movieInstances = listaPelis.map(data => new Movie(data));
     movieInstances.forEach(movie =>{
         movieGrid.append(movie.toCard()
@@ -26,8 +28,10 @@ function filtrarPorTitulo(peliculas, texto){
 
     
 }
+
 function playTitle(event){
         const texto = event.target.value.trim().toLowerCase();
+        guardarBusqueda(texto);
 
         const res = filtrarPorTitulo(rawMovies, texto);
         pintarPeliculas(res);
@@ -47,6 +51,33 @@ function debounce(callback, delay) {
     };
 }
 const busquedaDebounce = debounce(playTitle, 400);
+
+function guardarBusqueda(texto){
+
+    if(texto === "") return;
+
+    let busquedas =
+    JSON.parse(localStorage.getItem("busquedas"))
+    || [];
+
+    busquedas = busquedas.filter(
+        item => item !== texto
+    );
+
+    busquedas.unshift(texto);
+
+    if(busquedas.length > 10){
+
+        busquedas.pop();
+
+    }
+
+    localStorage.setItem(
+        "busquedas",
+        JSON.stringify(busquedas)
+    );
+
+}
 
 
 const themeToggle = document.getElementById("themeToggle");
