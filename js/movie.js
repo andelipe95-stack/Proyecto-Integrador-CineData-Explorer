@@ -1,5 +1,26 @@
 import { IMG } from "./api.js";
 
+function debounce(callback, delay) {
+
+    let timeoutId;
+    
+    return (...args) => {
+
+        clearTimeout(timeoutId);
+
+        timeoutId = setTimeout (() => {
+            callback(...args);
+        }, delay);
+    };
+}
+const handleSearch = debounce((event) =>{
+    console.log(event.target.value);
+
+}, 500);
+
+
+
+
 export class Movie {
     constructor(data){
         this._title = data.title;
