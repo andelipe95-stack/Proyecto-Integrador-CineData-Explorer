@@ -3,6 +3,7 @@
 import { obtenerPeliculas, obtenerDetallesPelicula } from "./api.js";
 import { Movie } from "./movie.js";
 import { mostrarPaises } from "./map.js";
+import { crearGrafica } from "./charts.js";
 
 
 // ========== ELEMENTOS DEL DOM ==========
@@ -31,13 +32,21 @@ function pintarPeliculas(listaPelis) {
         const card = movie.toCard();
 
         card.addEventListener("click", async () => {
+
             const detalles =
             await obtenerDetallesPelicula(movie._id);
+
             console.log(detalles);
 
             mostrarPaises(
                 detalles.production_countries
+                
             );
+
+            crearGrafica(
+                detalles.genres
+            );
+            
         });
 
 
