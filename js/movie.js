@@ -23,6 +23,7 @@ const handleSearch = debounce((event) =>{
 
 export class Movie {
     constructor(data){
+        this._id = data.id;
         this._title = data.title;
 
         this._year = data.release_date ? data.release_date : "Unkown";

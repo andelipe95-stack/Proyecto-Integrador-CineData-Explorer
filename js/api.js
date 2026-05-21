@@ -3,6 +3,8 @@ export const BASE = "https://api.themoviedb.org/3";
 export const IMG = "https://image.tmdb.org/t/p/w500";
 
 
+// Funcion trae populares
+
 export async function obtenerPeliculas() {
     try{
         const res = await fetch(
@@ -21,3 +23,17 @@ export async function obtenerPeliculas() {
     }
 }
 
+// NUEVA FUNCION trae detalles completos
+
+export async function obtenerDetallesPelicula(id){
+    try{
+        const res = await fetch(
+            BASE + "/movie/" + id +"?api_key=" + API_KEY
+        );
+        const datos = await res.json();
+        return datos;
+    }catch(error){
+        console.log(error);
+        return null;
+    }
+}
