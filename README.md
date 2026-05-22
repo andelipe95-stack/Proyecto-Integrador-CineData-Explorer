@@ -1,7 +1,7 @@
 
 CineData Explorer
 
-Aplicación web interactiva desarrollada con JavaScript ES6+, Leaflet y Chart.js.
+Aplicación web interactiva desarrollada con JavaScript, Leaflet y Chart.js.
 La aplicación permite explorar películas populares utilizando la API de TheMovieDB, visualizar los países de producción en un mapa interactivo y analizar géneros mediante gráficas dinámicas.
 
 Características principales
