@@ -16,8 +16,9 @@ Consumo de API REST con async/await
 Programación Orientada a Objetos (OOP)
 
 
-Estructura del proyecto
+## Estructura del proyecto
 
+```bash
 CineData-Explorer/
 │
 ├── index.html
@@ -32,6 +33,7 @@ CineData-Explorer/
 │   └── charts.js
 │
 └── assets/
+```
 
 Funcionalidades
 Búsqueda de películas
