@@ -36,12 +36,14 @@ function pintarPeliculas(listaPelis) {
             const detalles =
             await obtenerDetallesPelicula(movie._id);
 
-            console.log(detalles);
+            localStorage.setItem(
+                "lastMovieId",
+                movie._id
+            );            
 
             mostrarPaises(
-                detalles.production_countries
-                
-            );
+                detalles.production_countries                
+            );            
 
             crearGrafica(
                 detalles.genres
@@ -129,6 +131,27 @@ async function init() {
     try {
         rawMovies = await obtenerPeliculas();
         pintarPeliculas(rawMovies);
+
+        const lastMovieId =
+localStorage.getItem("lastMovieId");
+
+if(lastMovieId){
+
+    const detalles =
+    await obtenerDetallesPelicula(lastMovieId);
+
+    mostrarPaises(
+        detalles.production_countries
+    );
+
+    crearGrafica(
+        detalles.genres
+    );
+
+}
+
+
+
     } catch (error) {
         console.error("Error al cargar películas:", error);
         movieGrid.innerHTML = "<h2>Error al cargar las películas. Intenta más tarde.</h2>";

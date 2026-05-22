@@ -1,6 +1,7 @@
 let chart;
 
 export function crearGrafica(generos){
+
     const ctx =
     document.getElementById("genreChart");
     
@@ -10,15 +11,17 @@ export function crearGrafica(generos){
         chart.destroy();
     }
 
-    chart = new chart(ctx,{
+    chart = new Chart(ctx,{
         type: "doughnut",
 
         data: {
             labels: generos.map(
                 genero => genero.name
             ),
+
             datasets: [{
                 label: "Genres",
+                
                 data: generos.map (() => 1)
 
             }]
