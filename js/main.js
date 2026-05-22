@@ -24,7 +24,7 @@ function pintarPeliculas(listaPelis) {
         return;
     }
 
-    const movieInstances = listaPelis.map(data => new Movie(data));
+    const movieInstances = listaPelis.map(data => new Movie(data)); //convertimos Datos JSON en objeto Movie (POO)
 
 
     movieInstances.forEach(movie => {
